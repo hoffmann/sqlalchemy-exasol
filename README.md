@@ -33,3 +33,18 @@ Usage
 
     print result.fetchall()
 
+Alternative way to create the connection
+
+    import pyodbc
+    from sqlalchemy import create_engine
+    
+    dsn = 'DSN=myexa;UID=bob;PWD=secret;CONNECTIONLCALL=de_DE.UTF-8;CONNECTIONLCNUMERIC=en_US.UTF-8;STRINGSNOTNULL=N'
+    
+    def create_connection():
+        return pyodbc.connect(dsn)
+        
+    engine = create_engine('exasol://', creator=connect, encoding='utf-8')
+    engine = engine.connect()    
+
+
+
