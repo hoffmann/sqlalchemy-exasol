@@ -43,7 +43,7 @@ Alternative way to create the connection
     def create_connection():
         return pyodbc.connect(dsn)
         
-    engine = create_engine('exasol://', creator=connect, encoding='utf-8')
+    engine = create_engine('exasol://', creator=create_connection, encoding='utf-8')
     engine = engine.connect()    
 
 
